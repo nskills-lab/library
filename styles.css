@@ -100,17 +100,23 @@ div[data-book-btns]>button,
 #form-btn {
     width: 10em;
     align-self: center;
+    margin-top: 3em;
 }
 
 #form-close-btn {
-    font-size: 0.3em;
-    padding-top: 1em;
-    border-radius: 1000px;
+    font-size: 0.2em;
+    border-radius: 50%;
     align-self: flex-end;
+    background: #eee;
+    color: rgb(59, 57, 57);
+    height: 20px;
+    width: 20px;
 }
 
 #form-container {
+    display: none;
     position: absolute;
+    width: 25%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -134,6 +140,31 @@ label {
     margin-top: 1.2em
 }
 
+input {
+    padding: 1.5em;
+    font-size: 0.7em;
+    font-family: 'Special Elite', cursive;
+    border: grey;
+    border-style: solid;
+    border-width: thin;
+    outline: grey;
+}
+
+input:focus,
+input:hover,
+#notes:hover,
+#notes:focus {
+    border-color: rgb(41, 33, 33);
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, .1);
+    outline: grey;
+}
+
+#notes {
+    resize: none;
+    outline: grey;
+    font-size: 0.7em;
+}
+
 #overlay {
     display: none;
     position: absolute;
@@ -142,4 +173,9 @@ label {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, .75);
+}
+
+#form-container.open,
+#overlay.open {
+    display: block;
 }
