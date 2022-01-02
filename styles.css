@@ -1,68 +1,80 @@
 * {
     box-sizing: border-box;
-    font-family: 'Licorice', cursive;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Vujahday Script', cursive;
 }
 
 body {
-    background-image: url("libary-background.jpg");
     height: 100vh;
     width: 100vw;
     background-size: cover;
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Special Elite', cursive;
 }
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-image: url("side-bar-image.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-right: 1em;
 }
 
 div[data-title="page-title"] {
-    font-size: 1.8rem;
+    font-size: 1.6em;
     margin-left: .6em;
-    margin-top: .4em;
+    margin-top: .8em;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-grow: 2;
+    background-color: white;
 }
 
-.button {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
+.btn.btn-add {
+    margin: 1em;
 }
 
 button[data-btn="add"] {
-    margin: 1em;
-    font-size: .9rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: black;
-    color: orange;
+    font-size: .7rem;
+    padding: .5em 1em;
+    background-color: rgb(214, 10, 10);
+    color: white;
     border-radius: .4em;
-    border: none
+    border: none;
+    font-family: 'Special Elite', cursive;
+    align-self: center;
 }
 
 .library {
-    width: 100vw;
+    flex-grow: 2;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
-    margin-top: 1.2em;
-    font-size: .8rem;
+    align-items: flex-start;
+}
+
+.card {
+    border: 1px solid #eee;
+    background-color: cornsilk;
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, .06);
+    border-radius: .4em;
+    padding: 16px;
+    margin: 16px;
+    font-size: 0.7em;
 }
