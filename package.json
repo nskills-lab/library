@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,9 +20,5 @@
   "bugs": {
     "url": "https://github.com/nskills-lab/library/issues"
   },
-  "homepage": "https://github.com/nskills-lab/library#readme",
-  "dependencies": {
-    "parcel-bundler": "^1.12.5",
-    "uuid": "^8.3.2"
-  }
+  "homepage": "https://github.com/nskills-lab/library#readme"
 }

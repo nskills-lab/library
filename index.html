@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <script type="module" src="script.js"></script>
     <title>Library</title>
 </head>
 
@@ -35,7 +35,7 @@
                     <input type="number" id="pages-input">
                     <label for="pages-input">Has Read?</label>
                     <input type="checkbox" id="has-read">
-                    <label for="note-input">Note to Myself</label>
+                    <label for="note-input">Notes</label>
                     <textarea id="notes"></textarea>
                     <button id="form-btn" type="submit">Save</button>
                 </form>
@@ -46,7 +46,10 @@
                     <div data-title>"Wild"</div>
                     <div data-author>By Cheryl Strayed</div>
                     <div data-pages>315 pages</div>
-                    <div data-status>Read</div>
+                    <div data-status>Read:
+                        <input type="checkbox" id="has-read" checked="unchecked" disabled>
+                    </div>
+                    <div data-notes>Notes</div>
                     <div data-book-btns>
                         <button>Remove</button>
                         <button>Update</button>
@@ -56,7 +59,11 @@
                     <div data-title>"Wild"</div>
                     <div data-author>By Cheryl Strayed</div>
                     <div data-pages>315 pages</div>
-                    <div data-status>Read</div>
+                    <div data-status>
+                        <label>Read</label>
+                        <input type="checkbox" id="has-read">
+                        <span class="slider round"></span>
+                    </div>
                     <div data-book-btns>
                         <button>Remove</button>
                         <button>Update</button>
@@ -67,7 +74,12 @@
                         <div data-title></div>
                         <div data-author></div>
                         <div data-pages></div>
-                        <div data-status></div>
+                        <div data-status>
+                            <label>Read</label>
+                            <input type="checkbox" id="has-read">
+                            <span class="slider round"></span>
+                        </div>
+                        <div data-notes></div>
                         <div data-book-btns>
                             <button>Remove</button>
                             <button>Update</button>
