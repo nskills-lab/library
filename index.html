@@ -23,6 +23,21 @@
             <div class="btn btn-add">
                 <button data-btn="add">Add a Book</button>
             </div>
+            <div id="overlay"></div>
+            <div id="form-container">
+                <form id="new-book-form">
+                    <button id="form-close-btn">X</button>
+                    <label for="title-input">Book Title</label>
+                    <input type="text" id="title-input">
+                    <label for="author-input">Author</label>
+                    <input type="text" id="author-input">
+                    <label for="pages-input">Number of Pages</label>
+                    <input type="text" id="pages-input">
+                    <label for="pages-input">Has Read?</label>
+                    <input type="checkbox" id="has-read">
+                    <button id="form-btn" type="submit">Save</button>
+                </form>
+            </div>
 
             <div class="library">
                 <div class="card" data-book-id="1">
@@ -30,22 +45,33 @@
                     <div data-author>By Cheryl Strayed</div>
                     <div data-pages>315 pages</div>
                     <div data-status>Read</div>
-                    <div>
+                    <div data-book-btns>
                         <button>Remove</button>
                         <button>Update</button>
                     </div>
                 </div>
-                <div class="card" data-book-id="1">
+                <div class="card" data-book-id="2">
                     <div data-title>"Wild"</div>
                     <div data-author>By Cheryl Strayed</div>
                     <div data-pages>315 pages</div>
                     <div data-status>Read</div>
-                    <div>
+                    <div data-book-btns>
                         <button>Remove</button>
                         <button>Update</button>
                     </div>
                 </div>
-
+                <template id="card-template">
+                    <div class="card" data-book-id>
+                        <div data-title></div>
+                        <div data-author></div>
+                        <div data-pages></div>
+                        <div data-status></div>
+                        <div data-book-btns>
+                            <button>Remove</button>
+                            <button>Update</button>
+                        </div>
+                    </div>
+                </template>
 
             </div>
         </div>
