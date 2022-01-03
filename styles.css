@@ -42,7 +42,7 @@ div[data-title="page-title"] {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 100%;
+    height: 100vh;
     flex-grow: 2;
     background-color: white;
 }
@@ -116,6 +116,20 @@ div[data-book-btns]>button:hover,
     align-self: center;
     margin-top: 3em;
     cursor: pointer;
+}
+
+div[data-book-btns] button:disabled,
+div[data-book-btns] button:disabled:hover {
+    opacity: 0.3;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.switch-book-disabled,
+.switch-book-disabled:hover {
+    opacity: 0.3;
+    pointer-events: none;
+    box-shadow: none;
 }
 
 #form-close-btn {
@@ -206,8 +220,6 @@ input:hover,
     display: block;
 }
 
-div[data-notes] {}
-
 input[type=checkbox] {
     width: 0;
     height: 0;
@@ -221,15 +233,17 @@ div[data-form-status] {
 }
 
 div[data-libary-status] {
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 0;
     margin-bottom: 0;
 }
 
 .switch+label[data-label-switch] {
-    display: block;
-    width: 3em;
-    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 1.1em;
     background-color: hsl(0, 0%, 50%);
     border-radius: .5em;
     cursor: pointer;
@@ -239,22 +253,32 @@ div[data-libary-status] {
     margin: 0
 }
 
-.switch+label[data-label-switch]::after {
+.switch+label[data-label-switch]::before {
     content: "";
-    display: block;
     top: .1em;
     left: .15em;
     width: .8em;
     height: .8em;
     background-color: white;
-    border-radius: .5em;
+    border-radius: 50%;
     cursor: pointer;
-    position: absolute;
-    transition: 0.5s;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.switch+label[data-label-switch]::after {
+    content: "unread";
+    font-size: .3em;
+}
+
+.switch:checked+label[data-label-switch]::before {
+    transform: translate(180%);
 }
 
 .switch:checked+label[data-label-switch]::after {
-    transform: translate(230%);
+    content: "read";
+    position: absolute;
+    top: .5em;
+    left: .5em;
 }
 
 .switch:checked+label[data-label-switch] {
