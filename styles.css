@@ -49,6 +49,7 @@ div[data-title="page-title"] {
 
 .btn.btn-add {
     margin: 1em;
+    align-self: flex-end;
 }
 
 button[data-btn="add"] {
@@ -59,7 +60,6 @@ button[data-btn="add"] {
     border-radius: .4em;
     border: none;
     font-family: 'Special Elite', cursive;
-    align-self: flex-start;
     cursor: pointer;
 }
 
