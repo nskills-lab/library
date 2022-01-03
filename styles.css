@@ -42,7 +42,7 @@ div[data-title="page-title"] {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    height: 100%;
     flex-grow: 2;
     background-color: white;
 }
@@ -70,7 +70,7 @@ button[data-btn="add"]:focus {
 
 .library {
     flex-grow: 2;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -93,20 +93,21 @@ button[data-btn="add"]:focus {
 
 div[data-book-btns]>button,
 #form-btn {
-    font-size: 0.5em;
+    font-size: 0.7em;
     margin: .5em .4em;
     font-family: 'Special Elite', cursive;
     background-color: rgb(211, 140, 10);
     color: white;
     border-radius: .4em;
     border: none;
-    padding: .6em 1em;
+    padding: .8em 1em;
     cursor: pointer;
 }
 
 div[data-book-btns]>button:hover,
 #form-btn:hover div[data-book-btns]>button:focus,
-#form-btn:focus {
+#form-btn:focus,
+#form-btn:hover {
     box-shadow: 0 0 10px rgb(211, 140, 10);
 }
 
@@ -205,11 +206,7 @@ input:hover,
     display: block;
 }
 
-div[data-notes] {
-    width: 90%;
-    height: 20%;
-    background-color: rgba(168, 161, 161, 0.87);
-}
+div[data-notes] {}
 
 input[type=checkbox] {
     width: 0;
@@ -263,4 +260,30 @@ div[data-libary-status] {
 .switch:checked+label[data-label-switch] {
     background-color: rgb(211, 140, 10);
     box-shadow: 0 0 10px rgb(211, 140, 10);
+}
+
+.errors {
+    display: none;
+}
+
+.errors.show {
+    display: block;
+}
+
+.errors {
+    background-color: hsl(0, 100%, 80%);
+    border-radius: .5rem;
+    padding: 10px;
+    color: hsl(0, 50%, 20%);
+    margin-bottom: 1rem;
+}
+
+.error-title {
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+.errors-list {
+    margin: 0;
+    padding-left: 15px;
 }

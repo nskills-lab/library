@@ -5,11 +5,13 @@ const form = document.querySelector("#new-book-form");
 const title = document.querySelector("#title-input");
 const author = document.querySelector("#author-input");
 const pages = document.querySelector("#pages-input");
-const hasRead = document.querySelector("#has-read");
+const readToggle = document.querySelector("#switch-form");
 const notes = document.querySelector("#notes");
 const formSubmitBtn = document.querySelector("#form-btn");
 const template = document.querySelector("#card-template");
 const libaryContainer = document.querySelector(".library");
+const errorsContainer = document.querySelector(".errors");
+const errorsList = document.querySelector(".errors-list");
 const myLibrary = [];
 
 //To-do:
@@ -33,6 +35,10 @@ document.addEventListener("click", (e) => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const book = addBookToLibrary(e);
+
+    if (book === undefined) {
+        return;
+    }
     renderBook(book);
 });
 
@@ -46,30 +52,63 @@ function Book(id, title, author, pages, hasRead, notes) {
 }
 
 function addBookToLibrary(e) {
+    const errorMessages = [];
+    clearErrors();
     const titleVal = title.value;
-    title.value = "";
+    if (titleVal.length < 1) {
+        errorMessages.push("Book title cannot be empty.");
+    } else {
+        title.value = "";
+    }
+
     const authorVal = author.value;
-    author.value = "";
+    if (authorVal.length < 1) {
+        errorMessages.push("Author's name cannot be empty.");
+    } else {
+        author.value = "";
+    }
     const pagesVal = pages.value;
-    pages.value = "";
+    console.log(pagesVal);
+    if (pagesVal === "0") {
+        errorMessages.push("Pages cannot be zero.");
+    } else {
+        pages.value = "0";
+    }
+
     const notesVal = notes.value;
     notes.value = "";
-    // let hasReadVal = "";
-    // if (hasRead.checked) {
-    //     hasReadVal = "Read";
-    //     hasRead.click();
-    // } else {
-    //     hasReadVal = "Unread";
-    // }
+    let hasReadVal = "";
+    if (readToggle.checked) {
+        hasReadVal = true;
+        readToggle.click();
+    } else {
+        hasReadVal = false;
+    }
 
-    const book = new Book(v4(), titleVal, authorVal, pagesVal, "Read", notesVal);
-    myLibrary.push(book);
-    return book;
+    if (errorMessages.length > 0) {
+        showErrors(errorMessages);
+        overlay.classList.toggle("open");
+        formContainer.classList.toggle("open");
+
+        e.preventDefault();
+    } else {
+        const book = new Book(
+            v4(),
+            titleVal,
+            authorVal,
+            pagesVal,
+            hasReadVal,
+            notesVal
+        );
+        myLibrary.push(book);
+        return book;
+    }
 }
 
 function renderBook(book) {
     const bookToRender = template.content.cloneNode(true);
     const bookId = bookToRender.querySelector("[data-book-id");
+
     bookId.dataset.bookId = book.id;
     const bookTitle = bookToRender.querySelector("[data-title]");
     bookTitle.innerText = `"${book.title}"`;
@@ -77,11 +116,29 @@ function renderBook(book) {
     bookAuthor.innerText = `By ${book.author}`;
     const bookPages = bookToRender.querySelector("[data-pages]");
     bookPages.innerText = `${book.pages} pages`;
-    const bookRead = bookToRender.querySelector("[data-status]");
-    // bookRead.innerText = book.hasRead;
+    const bookRead = bookToRender.querySelector(".switch");
+    bookRead.setAttribute("id", bookRead.getAttribute("id") + book.id);
+    bookRead.checked = book.hasRead;
+    const label = bookToRender.querySelector("[data-label-switch]");
+    label.setAttribute("for", label.getAttribute("for") + book.id);
     const bookNotes = bookToRender.querySelector("[data-notes]");
     bookNotes.innerText = `Notes:  ${book.notes}`;
     libaryContainer.appendChild(bookToRender);
 }
 
-//create a function that can toggle on/off read status
+function clearErrors() {
+    while (errorsList.children[0] != null) {
+        errorsList.removeChild(errorsList.children[0]);
+        console.log(errorsList.children[0]);
+    }
+    errorsContainer.classList.remove("show");
+}
+
+function showErrors(errorMessages) {
+    errorMessages.forEach((errorMessage) => {
+        const li = document.createElement("li");
+        li.innerText = errorMessage;
+        errorsList.appendChild(li);
+    });
+    errorsContainer.classList.add("show");
+}

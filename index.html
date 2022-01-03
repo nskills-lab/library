@@ -21,18 +21,23 @@
 
         <div class="main">
             <div class="btn btn-add">
-                <button data-btn="add">Add a Book</button>
+                <button type="button" data-btn="add">Add a Book</button>
             </div>
             <div id="overlay"></div>
             <div id="form-container">
                 <form id="new-book-form">
-                    <button id="form-close-btn">X</button>
-                    <label for="title-input">Book Title</label>
+                    <button type="button" id="form-close-btn">X</button>
+                    <div class="errors">
+                        <h3 class="error-title">Errors</h3>
+                        <ul class="errors-list">
+                        </ul>
+                    </div>
+                    <label for="title-input">Book Title*</label>
                     <input type="text" id="title-input">
-                    <label for="author-input">Author</label>
+                    <label for="author-input">Author*</label>
                     <input type="text" id="author-input">
-                    <label for="pages-input">Number of Pages</label>
-                    <input type="number" id="pages-input" placeholder="1" min="1">
+                    <label for="pages-input">Number of Pages*</label>
+                    <input type="number" id="pages-input" value="0" min="1">
                     <div data-form-status>
                         <input type="checkbox" class="switch" id="switch-form">
                         <label data-label-switch for="switch-form"></label>
@@ -46,44 +51,32 @@
             <div class="library">
                 <div class="card" data-book-id="1">
                     <div data-title>"Wild"</div>
-                    <div data-author>By Cheryl Strayed</div>
-                    <div data-pages>315 pages</div>
+                    <div data-author>By: Cheryl Strayed</div>
+                    <div data-pages>Pages: 315 </div>
                     <div data-libary-status>
                         <input type="checkbox" class="switch" id="switch-book-1">
                         <label data-label-switch for="switch-book-1"></label>
                     </div>
-                    <div data-notes>Notes</div>
+                    <div data-notes>Notes:</div>
                     <div data-book-btns>
-                        <button>Remove</button>
-                        <button>Update</button>
+                        <button type="button">Remove</button>
+                        <button type="button">Edit</button>
                     </div>
                 </div>
-                <div class="card" data-book-id="2">
-                    <div data-title>"Wild"</div>
-                    <div data-author>By Cheryl Strayed</div>
-                    <div data-pages>315 pages</div>
-                    <div data-libary-status>
-                        <input type="checkbox" class="switch" id="switch-book-2">
-                        <label data-label-switch for="switch-book-2"></label>
-                    </div>
-                    <div data-book-btns>
-                        <button>Remove</button>
-                        <button>Update</button>
-                    </div>
-                </div>
+
                 <template id="card-template">
                     <div class="card" data-book-id>
                         <div data-title></div>
                         <div data-author></div>
                         <div data-pages></div>
                         <div data-read-status>
-                            <input type="checkbox" class="switch" id="switch-book-" >
+                            <input type="checkbox" class="switch" id="switch-book-">
                             <label data-label-switch for="switch-book-"></label>
                         </div>
                         <div data-notes></div>
                         <div data-book-btns>
-                            <button>Remove</button>
-                            <button>Update</button>
+                            <button type="button">Remove</button>
+                            <button type="button">Edit</button>
                         </div>
                     </div>
                 </template>
