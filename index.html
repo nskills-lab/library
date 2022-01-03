@@ -32,9 +32,11 @@
                     <label for="author-input">Author</label>
                     <input type="text" id="author-input">
                     <label for="pages-input">Number of Pages</label>
-                    <input type="number" id="pages-input">
-                    <label for="pages-input">Has Read?</label>
-                    <input type="checkbox" id="has-read">
+                    <input type="number" id="pages-input" placeholder="1" min="1">
+                    <div data-form-status>
+                        <input type="checkbox" class="switch" id="switch-form">
+                        <label data-label-switch for="switch-form"></label>
+                    </div>
                     <label for="note-input">Notes</label>
                     <textarea id="notes"></textarea>
                     <button id="form-btn" type="submit">Save</button>
@@ -46,8 +48,9 @@
                     <div data-title>"Wild"</div>
                     <div data-author>By Cheryl Strayed</div>
                     <div data-pages>315 pages</div>
-                    <div data-status>Read:
-                        <input type="checkbox" id="has-read" checked="unchecked" disabled>
+                    <div data-libary-status>
+                        <input type="checkbox" class="switch" id="switch-book-1">
+                        <label data-label-switch for="switch-book-1"></label>
                     </div>
                     <div data-notes>Notes</div>
                     <div data-book-btns>
@@ -59,10 +62,9 @@
                     <div data-title>"Wild"</div>
                     <div data-author>By Cheryl Strayed</div>
                     <div data-pages>315 pages</div>
-                    <div data-status>
-                        <label>Read</label>
-                        <input type="checkbox" id="has-read">
-                        <span class="slider round"></span>
+                    <div data-libary-status>
+                        <input type="checkbox" class="switch" id="switch-book-2">
+                        <label data-label-switch for="switch-book-2"></label>
                     </div>
                     <div data-book-btns>
                         <button>Remove</button>
@@ -74,10 +76,9 @@
                         <div data-title></div>
                         <div data-author></div>
                         <div data-pages></div>
-                        <div data-status>
-                            <label>Read</label>
-                            <input type="checkbox" id="has-read">
-                            <span class="slider round"></span>
+                        <div data-read-status>
+                            <input type="checkbox" class="switch" id="switch-book-" >
+                            <label data-label-switch for="switch-book-"></label>
                         </div>
                         <div data-notes></div>
                         <div data-book-btns>

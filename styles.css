@@ -1,4 +1,5 @@
-* {
+*,
+*::after {
     box-sizing: border-box;
 }
 
@@ -59,6 +60,12 @@ button[data-btn="add"] {
     border: none;
     font-family: 'Special Elite', cursive;
     align-self: flex-start;
+    cursor: pointer;
+}
+
+button[data-btn="add"]:hover,
+button[data-btn="add"]:focus {
+    box-shadow: 0 0 10px rgb(214, 10, 10);
 }
 
 .library {
@@ -85,8 +92,7 @@ button[data-btn="add"] {
 }
 
 div[data-book-btns]>button,
-#form-btn,
-#form-close-btn {
+#form-btn {
     font-size: 0.5em;
     margin: .5em .4em;
     font-family: 'Special Elite', cursive;
@@ -95,22 +101,39 @@ div[data-book-btns]>button,
     border-radius: .4em;
     border: none;
     padding: .6em 1em;
+    cursor: pointer;
+}
+
+div[data-book-btns]>button:hover,
+#form-btn:hover div[data-book-btns]>button:focus,
+#form-btn:focus {
+    box-shadow: 0 0 10px rgb(211, 140, 10);
 }
 
 #form-btn {
     width: 10em;
     align-self: center;
     margin-top: 3em;
+    cursor: pointer;
 }
 
 #form-close-btn {
+    font-family: 'Special Elite', cursive;
     font-size: 0.2em;
+    border: none;
     border-radius: 50%;
     align-self: flex-end;
     background: #eee;
     color: rgb(59, 57, 57);
     height: 20px;
     width: 20px;
+    cursor: pointer;
+}
+
+#form-close-btn:focus,
+#form-close-btn:hover {
+    box-shadow: 0 0 10px rgb(59, 57, 57);
+    ;
 }
 
 #form-container {
@@ -127,6 +150,7 @@ div[data-book-btns]>button,
     padding: 16px;
     margin: 16px;
     font-size: 0.6em;
+    z-index: 2;
 }
 
 #new-book-form {
@@ -173,9 +197,70 @@ input:hover,
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, .75);
+    z-index: 1;
 }
 
 #form-container.open,
 #overlay.open {
     display: block;
+}
+
+div[data-notes] {
+    width: 90%;
+    height: 20%;
+    background-color: rgba(168, 161, 161, 0.87);
+}
+
+input[type=checkbox] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+div[data-form-status] {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div[data-libary-status] {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.switch+label[data-label-switch] {
+    display: block;
+    width: 3em;
+    height: 1em;
+    background-color: hsl(0, 0%, 50%);
+    border-radius: .5em;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+    box-shadow: 0 0 5px hsl(0, 0%, 50%);
+    margin: 0
+}
+
+.switch+label[data-label-switch]::after {
+    content: "";
+    display: block;
+    top: .1em;
+    left: .15em;
+    width: .8em;
+    height: .8em;
+    background-color: white;
+    border-radius: .5em;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.switch:checked+label[data-label-switch]::after {
+    transform: translate(230%);
+}
+
+.switch:checked+label[data-label-switch] {
+    background-color: rgb(211, 140, 10);
+    box-shadow: 0 0 10px rgb(211, 140, 10);
 }

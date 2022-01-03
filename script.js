@@ -16,6 +16,7 @@ const myLibrary = [];
 
 // Add a way to remove the book card
 // Add a way to update the book card
+// add input validation: if the inputs are zero no card is added
 
 document.addEventListener("click", (e) => {
     if (e.target.matches("[data-btn='add']")) {
@@ -53,13 +54,13 @@ function addBookToLibrary(e) {
     pages.value = "";
     const notesVal = notes.value;
     notes.value = "";
-    let hasReadVal = "";
-    if (hasRead.checked) {
-        hasReadVal = "Read";
-        hasRead.click();
-    } else {
-        hasReadVal = "Unread";
-    }
+    // let hasReadVal = "";
+    // if (hasRead.checked) {
+    //     hasReadVal = "Read";
+    //     hasRead.click();
+    // } else {
+    //     hasReadVal = "Unread";
+    // }
 
     const book = new Book(v4(), titleVal, authorVal, pagesVal, "Read", notesVal);
     myLibrary.push(book);
@@ -77,7 +78,7 @@ function renderBook(book) {
     const bookPages = bookToRender.querySelector("[data-pages]");
     bookPages.innerText = `${book.pages} pages`;
     const bookRead = bookToRender.querySelector("[data-status]");
-    bookRead.innerText = book.hasRead;
+    // bookRead.innerText = book.hasRead;
     const bookNotes = bookToRender.querySelector("[data-notes]");
     bookNotes.innerText = `Notes:  ${book.notes}`;
     libaryContainer.appendChild(bookToRender);
