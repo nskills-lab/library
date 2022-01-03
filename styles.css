@@ -287,3 +287,8 @@ div[data-libary-status] {
     margin: 0;
     padding-left: 15px;
 }
+
+div[data-title] {
+    font-weight: bold;
+    font-size: 1.2em;
+}
