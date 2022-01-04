@@ -1,4 +1,3 @@
-import { v4 } from "./node_modules/uuid/dist/esm-browser/index.js";
 const formContainer = document.querySelector("#form-container");
 const overlay = document.querySelector("#overlay");
 const form = document.querySelector("#new-book-form");
@@ -72,7 +71,7 @@ function addBookToLibrary(inputsObj) {
     let bookToRender;
     if (inputsObj["id"] === undefined) {
         bookToRender = new Book(
-            v4(),
+            Date.now().toString(),
             inputsObj["Title"],
             inputsObj["Author"],
             inputsObj["Pages"],
@@ -89,6 +88,7 @@ function addBookToLibrary(inputsObj) {
             }
         });
     }
+
     return bookToRender;
 }
 
