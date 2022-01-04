@@ -93,7 +93,7 @@ button[data-btn="add"]:focus {
 
 div[data-book-btns]>button,
 #form-btn {
-    font-size: 0.7em;
+    font-size: 1em;
     margin: .5em .4em;
     font-family: 'Special Elite', cursive;
     background-color: rgb(211, 140, 10);
@@ -154,7 +154,7 @@ div[data-book-btns] button:disabled:hover {
 #form-container {
     display: none;
     position: absolute;
-    width: 25%;
+    width: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -256,7 +256,7 @@ div[data-libary-status] {
 .switch+label[data-label-switch]::before {
     content: "";
     top: .1em;
-    left: .15em;
+    left: .1em;
     width: .8em;
     height: .8em;
     background-color: white;
@@ -267,7 +267,7 @@ div[data-libary-status] {
 
 .switch+label[data-label-switch]::after {
     content: "unread";
-    font-size: .3em;
+    font-size: .6em;
 }
 
 .switch:checked+label[data-label-switch]::before {
