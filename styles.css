@@ -277,7 +277,7 @@ div[data-libary-status] {
 .switch:checked+label[data-label-switch]::after {
     content: "read";
     position: absolute;
-    top: .5em;
+    top: .3em;
     left: .5em;
 }
 
