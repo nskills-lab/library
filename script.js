@@ -12,6 +12,7 @@ const errorsList = document.querySelector(".errors-list");
 const titleLable = form.querySelector("[data-form-book-id]");
 const formInputsArr = [title, author, pages];
 const SWITCH_BOOK_ID = "switch-book-";
+const generator = idGenerator();
 let myLibrary = [];
 
 document.addEventListener("click", (e) => {
@@ -71,7 +72,7 @@ function addBookToLibrary(inputsObj) {
     let bookToRender;
     if (inputsObj["id"] === undefined) {
         bookToRender = new Book(
-            Date.now().toString(),
+            generator.next().value.toString(),
             inputsObj["Title"],
             inputsObj["Author"],
             inputsObj["Pages"],
@@ -193,4 +194,11 @@ function addOrUpdateBookToRender(bookToRender, book) {
     const label = bookToRender.querySelector("[data-label-switch]");
     label.setAttribute("for", SWITCH_BOOK_ID + book.id);
     label.classList.add("switch-book-disabled");
+}
+
+function* idGenerator() {
+    let count = 2;
+    while (true) {
+        yield count++;
+    }
 }
