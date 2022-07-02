@@ -25,7 +25,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    background-image: url("side-bar-image.jpg");
+    background-image: url("./images/side-bar-image.jpg");
     background-size: cover;
     background-position: center;
     padding-right: 1em;

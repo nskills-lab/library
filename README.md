@@ -1,6 +1,6 @@
 # Library Project
 
-![Digital library](./preview-image.png)
+![Digital library](images/preview-image.png)
 
 Based on [The Odin Project's ](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library) assignment.
 
