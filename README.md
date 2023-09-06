@@ -2,7 +2,7 @@
 
 ![Digital library](images/preview-image.png)
 
-Based on [The Odin Project's ](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library) assignment.
+Based on The Odin Project's assignment.
 
 ## Acknowledgements
 
